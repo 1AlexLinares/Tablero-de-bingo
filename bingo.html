@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bingo</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <style>
+
+      
+      .row {
+        padding: 3px;
+        margin: 5px;
+        text-align: justify;
+      
+        background-color: rgb(84, 133, 85);
+      }
+      .row1{
+    
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-left: 1px;
+        margin-right: 1px;
+        background-color: rgb(202, 187, 18);
+      
+      }
+      
+    
+      .digito {
+        text-align: center;
+        padding: 1px;
+        margin: 1px;
+        font-size: 25px;
+        background: #c26d13;
+        border-radius: 15px;
+      }
+      .letra {
+        background: #d01919;
+        color: rgb(30, 15, 15);
+        border-radius: 15px;
+      }
+      #start {
+        background:#32d016;
+        border-radius: 25px;
+        color: rgb(24, 10, 10);
+        width: 100%;
+        padding: 40px;
+        font-size: 35px;
+        border: 0;
+      }
+      #boton {
+        padding-right: 0;
+        margin: 0%;
+      }
+      .numeroSeleccionado div {
+        background: #ffd146;
+        
+      }
+      #pantalla {
+        width: 100%;
+        height: 100%;
+        padding: 0%;
+        margin: 0%;
+        font-size: 40px;
+        align-content: center;
+        
+      }
+
+      #pantalla {
+        background: 
+        linear-gradient(90deg,rgb(220, 52, 172) 50%,transparent  50%),
+        linear-gradient(90deg,rgb(77, 220, 52)  50%, transparent 50%),
+        linear-gradient(45deg,rgb(220, 139, 52) 50%, transparent 50%),
+        linear-gradient(45deg,rgb(220, 80, 52)  50%, transparent 50%);
+          
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+        background-size: 15px 10px, 15px 10px, 15px 10px, 15px 10px;
+        /* background-position: 0px 0px, 200px 0px, 0px 100px, 200px 0px; */
+        padding: 20px;
+        margin: 5px;
+        animation: border-dance 8s infinite linear;
+      }
+      @keyframes border-dance {
+        0% {
+          background-position: 0px 0px, 650px 115px, 2px 650px, 680px 50px;
+        }
+        100% {
+          background-position: 640px 0px, 115px 115px, 2px 0px, 680px 710px;
+        }
+      }
+
+      #INS{
+        border: solid 5px;
+        border-color: #e2e217;
+        margin: 0px;
+        padding: 0px;
+        width: 200px;
+        height: auto;
+        text-align: center;
+      }
+
+      .h2{
+        color: #e23217;
+      }
+
+      #ind_letra_b{
+        text-align: center;
+        border:solid;
+        border-color: #ffd146; 
+        
+
+      }
+      #ind_letra_i{
+        text-align: center;
+        border:solid;
+        border-color: #ffd146;
+        
+      }
+
+      #ind_letra_n{
+        text-align: center;
+        border:solid;
+        border-color: #ffd146;
+        
+      }
+
+      #ind_letra_g{
+        text-align: center;
+        border:solid;
+        border-color: #ffd146;
+      
+
+      }
+
+      #ind_letra_o{
+        text-align: center;
+        border:solid;
+        border-color: #ffd146;
+      
+      }
+
+      .ficha{
+        border-style: groove  ;
+        border-color: black ;
+        margin: 0%;
+        padding: 0px;
+        background-color: crimson;
+      }
+
+      #FR{
+        padding: 0px;
+        margin: 0px;
+        text-align:center ;
+        height: auto;
+        width: auto;
+        background-color: rgb(220, 20, 77);
+        display: flex;
+        flex-direction: row;
+        
+        
+      }
+
+      
+
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      
+      <div class="col col-2">
+        <p></p>
+        <p></p>
+        
+        <div id="INS">
+          <p></p>
+          <p></p>
+        <h3 class="text-center">Instrucciones:</h3>
+          <p></p>
+          <p></p>
+        <h6>1. Para inciar el juego de "Clic" en el boton "JUGAR",luego de ello iniciara la partida
+            en donde podra observar la letra y el número.</h6>
+          <p></p>
+          <p></p>
+          
+        <h6>2. Cada vez que quiera realizar una juegada debera presionar el boton de "JUGAR".</h6>
+          <p></p>
+          <p></p>
+        <h6>3. Escribar sus jugadas y cuando el carton anuncielo con un "BINGO". </h6>
+          <p></p>
+          <p></p>
+    
+        <h2 class="h2">--------------</h2>
+          <p></p>
+          <p></p>
+        <h3>¡¡Buen juego!!</h3>
+          <p></p>
+          <p></p>
+          <p></p>
+    
+        <h2 class="h2">--------------</h2>
+      </div>
+    </div>
+
+      <div class="col col-10">
+          <div class="row">
+            <div class="col col-8 text-center">
+              <div id="pantalla">Pantalla inicia el juego => </div>
+            </div>
+            <div class="col col-2" id="boton">
+              <button id="start">JUGAR</button>
+            </div>
+            <p></p>
+          </div>
+
+        <div class="col col-10" id="FR">
+          <div class="col col-1.8 " id="ind_letra_b">
+            <div class="row1"><div class="col-12 digito letra">B</div></div>
+          </div>
+
+          <div class="col col-1.8 indicador" id="ind_letra_i">
+            <div class="row1"><div class="col-12 digito letra">I</div></div>
+          </div>
+
+          <div class="col col-1.8 indicador" id="ind_letra_n">
+            <div class="row1"><div class="col-12 digito letra">N</div></div>
+          </div>
+
+          <div class="col col-1.8 indicador" id="ind_letra_g">
+            <div class="row1"><div class="col-12 digito letra">G</div></div>
+          </div>
+
+          <div class="col col-1.8 indicador" id="ind_letra_o">
+            <div class="row1"><div class="col-12 digito letra">O</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let numerosSeleccionados = [];
+      let cantidad = 50;
+
+      //Llenar arreglo
+      for (let a = 0; a < cantidad; a++) {
+        numerosSeleccionados.push(false);
+      }
+
+      function llenar_columna(letra, inicio, fin) {
+        for (var a = inicio; a <= fin; a++) {
+          $("#ind_letra_" + letra).append('   '+ a + "<p></p> <div class='ficha'> </div>",);
+        };
+      }
+
+      $(function () {
+        llenar_columna("b", 1, 10);
+        llenar_columna("i", 11, 20);
+        llenar_columna("n", 21, 30);
+        llenar_columna("g", 31, 40);
+        llenar_columna("o", 41, 50);
+
+        $("#start").click(function () {
+          gestionarNumero();
+        });
+      });
+
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max + 1);
+        return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+      }
+
+      function gestionarNumero() {
+        var numero = obtenerNumero();
+
+        diligenciarNumero(numero);
+        /*
+        Misma línea anterior pero en código nativo javascript
+        document.getElementById("dig_"+numero).classList.add("numeroSeleccionado");
+        */
+
+        //Si ya todas las posiciones de nuestro arreglo son "true" y por tanto no hay false
+        if (numerosSeleccionados.includes(false) == false) {
+          alert("¡Se han acabado los números!");
+          $("#start").attr("disabled", "disabled");
+        }
+      }
+
+      function obtenerNumero() {
+        //Llama a la función de calcular aleatorio, si el número no existe, devuelve dicho número
+        //Si el número ya existe, se vuelve a llamar a sí misma para generar otro número
+        var numero = getRandomInt(1, 50);
+
+        if (numerosSeleccionados[numero - 1] == true) {
+          return obtenerNumero();
+        } else {
+          return numero;
+        }
+      }
+
+      function diligenciarNumero(numero) {
+        //Agrega la clase numeroSeleccionado a la celda correspondiente para que se cambie el color
+        $("#dig_" + numero).addClass("numeroSeleccionado");
+        //Actualizamos el arreglo de números procesados
+        numerosSeleccionados[numero - 1] = true;
+        //Mostramos en pantalla el resultado
+        imprimirPantalla(numero);
+      }
+
+      function imprimirPantalla(numero) {
+        var letra = "";
+
+        /*
+        if(numero<=10)
+        {
+            letra="B";
+        }else if(numero <=20)
+        {
+            letra="I";
+        }else if(numero<=30)
+        {
+            letra="N";
+        }else if(numero<=40)
+        {
+            letra="G";
+        }else
+        {
+            letra="O";
+        }
+        */
+
+        /*
+        var cantidadLetras = 5;
+        var arregloletras = ["B", "I", "N", "G", "O"];
+        var letraElegida = arregloletras[cantidadLetras - 1];
+        for (var a = 0; a < cantidadLetras - 1; a++) {
+          if (numero <= (cantidad * (a + 1)) / cantidadLetras) {
+            letraElegida = arregloletras[a];
+            break;
+          }
+        }
+        */
+
+        var cantidadPorCol = 10;
+        var arregloletras = ["B", "I", "N", "G", "O"];
+        letra = arregloletras[Math.ceil(numero / cantidadPorCol) - 1];
+
+        /*
+        switch (true) {
+          case numero <= (cantidad * 1) / 5:
+            letra = "B";
+            break;
+          case numero <= (cantidad * 2) / 5:
+            letra = "I";
+            break;
+          case numero <= (cantidad * 3) / 5:
+            letra = "N";
+            break;
+          case numero <= (cantidad * 4) / 5:
+            letra = "G";
+            break;
+          default:
+            letra = "O";
+            break;
+        }
+        */
+
+        $("#pantalla").html(letra + numero);
+        //Misma línea pero con Javascript nativo
+        document.getElementById("pantalla").innerHTML = letra + numero;
+      }
+    </script>
+  </body>
+</html>
